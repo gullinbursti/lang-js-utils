@@ -1,0 +1,9 @@
+
+#-- os stuff --#
+.*DS_STORE
+
+#-- ide stuff --#
+.idea
+
+#-- dir stuff --#
+node_modules
