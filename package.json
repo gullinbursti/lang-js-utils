@@ -1,0 +1,23 @@
+{
+  "name": "lang-js-utils",
+  "version": "1.0.0",
+  "description": "Extends native JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lang",
+    "util"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gullinbursti/lang-js-utils.git"
+  },
+  "author": "Matt Holcombe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gullinbursti/lang-js-utils/issues"
+  },
+  "homepage": "https://github.com/gullinbursti/lang-js-utils#readme"
+}
