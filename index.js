@@ -324,22 +324,22 @@ export const URIs = {
 };
 
 
-module.exports = {
-	Arrays,
-	Bits,
-	Bools,
-	Browsers,
-	Colors,
-	Components,
-	DateTimes,
-	Files,
-	Maths,
-	Numbers,
-	Objects,
-	RegExps,
-	Strings,
-	URIs
-};
+// module.exports = {
+// 	Arrays,
+// 	Bits,
+// 	Bools,
+// 	Browsers,
+// 	Colors,
+// 	Components,
+// 	DateTimes,
+// 	Files,
+// 	Maths,
+// 	Numbers,
+// 	Objects,
+// 	RegExps,
+// 	Strings,
+// 	URIs
+// };
 
 
 /* …\(^_^)/… */
