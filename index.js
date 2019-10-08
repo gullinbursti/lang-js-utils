@@ -18,7 +18,7 @@ export const Arrays = {
 // 	dropElement      : (arr, element)=> (arr.filter((item)=> (item !== element))),
 	dropElement      : (arr, element)=> (Arrays.dropElements(arr, [element])),
 	dropElements     : (arr, elements)=> (arr.filter((element)=> (!Arrays.containsElement(elements, element)))),
-	indexFill        : (len, offset=0)=> (Arrays.indexMap((new Array(len).fill(null))).map((i)=> (i + offset))),
+	indexFill        : (len, ind=0)=> (Arrays.indexMap((new Array(len).fill(null))).map((i)=> (i + ind))),
 	indexMap         : (arr)=> (arr.map((element, i)=> (i))),
 	isEmpty          : (arr)=> (arr.length === 0),
 	randomElement    : (arr)=> (arr[arr.randomIndex()]),
@@ -65,14 +65,16 @@ export const Browsers = {
 		txtArea.remove();
 	},
 	isMobile     : {
-		Android    : ()=> (navigator.userAgent.match(/Android/i)),
-		BlackBerry : ()=> (navigator.userAgent.match(/BlackBerry/i)),
-		iOS        : ()=> (navigator.userAgent.match(/iPhone|iPad|iPod/i)),
-		Opera      : ()=> (navigator.userAgent.match(/Opera Mini/i)),
-		Windows    : ()=> (navigator.userAgent.match(/IEMobile|WPDesktop/i)),
+		Android    : ()=> (/Android/i.test(navigator.userAgent)),
+		BlackBerry : ()=> (/BlackBerry/i.test(navigator.userAgent)),
+		iOS        : ()=> (/iPhone|iPad|iPod/i.test(navigator.userAgent)),
+		iPad       : ()=> (/iPad/i.test(navigator.userAgent)),
+		iPhone     : ()=> (/iPhone/i.test(navigator.userAgent) && !Browsers.isMobile.iPad()),
+		Opera      : ()=> (/Opera Mini/i.test(navigator.userAgent)),
+		Windows    : ()=> (/IEMobile|WPDesktop/i.test(navigator.userAgent)),
 		ANY        : ()=> (Browsers.isMobile.Android() || Browsers.isMobile.iOS() || Browsers.isMobile.Windows() || Browsers.isMobile.Opera() || Browsers.isMobile.BlackBerry())
 	},
-	isSafari     : ()=> (navigator.userAgent.match(/Mac OS X.+Safari/i) && !navigator.userAgent.match(/Mac OS X.+Chrome/i)),
+	isSafari     : ()=> (/Mac OS X.+Safari/i).test(navigator.userAgent && !/Mac OS X.+Chrome/i.test(navigator.userAgent)),
 	makeDownload : (url, blank=false)=> {
 		let link = document.createElement('a');
 		link.target = (blank) ? '_blank' : '_self';
@@ -87,7 +89,8 @@ export const Browsers = {
 			element.scrollTo(coords.x, coords.y);
 		}
 	},
-	scrollOrigin : (element)=> (Browsers.scrollElement(element))
+	scrollOrigin : (element)=> (Browsers.scrollElement(element)),
+	userAgent     : { navigator },
 };
 
 
@@ -159,6 +162,11 @@ export const Files = {
 	extension    : (path)=> (path.split('.').pop()),
 	filename     : (path, sep='.')=> (Files.basename(path).split(sep).slice(0, -1).join(sep)),
 	truncateName : (path, len)=> (`${Strings.truncate(Files.filename(path).split('').slice(0, -2).join(''), len - 2)}${Files.filename(path).split('').slice(-2).join('')}.${Files.extension(path)}`)
+};
+
+
+export const Forms = {
+
 };
 
 
