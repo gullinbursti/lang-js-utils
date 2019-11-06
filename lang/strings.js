@@ -43,7 +43,7 @@ const Strings = {
 // 	trimBounds  : (str, char)=> (str.match(RegExps.concat(char, '^', '$'), '')),
 	trimBounds  : (str, char)=> (str.split(char).filter((segment, i)=> (segment.length > 0)).join(char)),
 	trimSlashes : (str, leading=true, trailing=true)=> (str.replace(((leading && trailing) ? /^\/?(.+)\// : (leading && !trailing) ? /^\/(.+)$/ : (!leading && trailing) ? /^(.+)\/$/ : /^(.+)$/), '$1')),
-	truncate    : (str, len, ellipsis='…')=> ((str.trim().length > 0 && str.trim().length > len) ? `${str.trim().slice(0, Math.max(0, len - 1))}${ellipsis}` : str),
+	truncate    : (str, len, ellipsis='…')=> ((str.trim().length > 0 && str.trim().length > len) ? `${str.trim().slice(0, Math.max(0, len - 1)).trim()}${ellipsis}` : str),
 	utf8Encode  : (str, enc='ascii')=> ((new Buffer(str, enc)).toString('utf8'))
 };
 
