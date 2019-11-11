@@ -1,7 +1,7 @@
 'use strict';
 
 
-const Browsers = {
+const Browsers = (navigator) ? {
 	clipboardCopy : (str)=> {
 // 		navigator.clipboard.writeText(str);
 		const txtArea = document.createElement('textarea');
@@ -39,7 +39,7 @@ const Browsers = {
 	},
 	scrollOrigin : (element)=> (Browsers.scrollElement(element)),
 	userAgent     : { navigator },
-};
+} : {};
 
 
 export default (Browsers);
