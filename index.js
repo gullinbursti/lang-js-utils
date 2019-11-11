@@ -6,6 +6,7 @@ import Bits  from './lang/bits';
 import Bools from './lang/bools';
 import Browsers from './lang/browsers';
 import Colors from './lang/colors';
+import Components from './lang/components';
 import DateTimes from './lang/datetimes';
 import Files from './lang/files';
 import Forms from './lang/forms';
@@ -23,6 +24,7 @@ export {
 	Bools,
 	Browsers,
 	Colors,
+	Components,
 	DateTimes,
 	Files,
 	Forms,
