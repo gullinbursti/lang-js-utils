@@ -1,7 +1,7 @@
 'use strict';
 
 
-const Browsers = (navigator) ? {
+const Browsers = (typeof navigator !== 'undefined') ? {
 	clipboardCopy : (str)=> {
 // 		navigator.clipboard.writeText(str);
 		const txtArea = document.createElement('textarea');
