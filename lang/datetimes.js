@@ -25,7 +25,7 @@ const DateTimes = {
 	ellipsis       : ()=> (Array((DateTimes.epoch() % 4) + 1).join('.')),
 	epoch          : (millisecs=false)=> ((millisecs) ? (new Date()).getTime() : ((new Date()).getTime() * 0.001) << 0),
 	isLeapYear     : (date=new Date())=> ((date.getFullYear() % 4 === 0) && ((date.getFullYear() % 100 !== 0) || (date.getFullYear() % 400 === 0))),
-	iso8601        : (date=new Date())=> (`${date.getFullYear()}-${Strings.lPad(date.getMonth(), '0', 2)}-${Strings.lPad(date.getDate(), '0', 2)}T${Strings.lPad(date.getHours(), '0', 2)}:${Strings.lPad(date.getMinutes(), '0', 2)}:${Strings.lPad(date.getSeconds(), '0', 2)}${(date.getTimezoneOffset() === 0) ? 'Z' : date.toTimeString().split(' ')[1].replace(/^.+(.\d{4})/, '$1')}`),
+	iso8601        : (date=new Date())=> (`${date.getFullYear()}-${Strings.lPad(date.getMonth(), '0', 2)}-${Strings.lPad(date.getDate(), '0', 2)}T${Strings.lPad(date.getHours(), '0', 2)}:${Strings.lPad(date.getMinutes(), '0', 2)}:${Strings.lPad(date.getSeconds(), 2)}${(date.getTimezoneOffset() === 0) ? 'Z' : date.toTimeString().split(' ')[1].replace(/^.+(.\d{4})/, '$1')}`),
 	secsDiff       : (date1, date2=new Date())=> (Math.abs(date1.getTime() - date2.getTime()))
 };
 
