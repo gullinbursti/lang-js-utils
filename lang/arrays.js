@@ -20,11 +20,12 @@ const Arrays = {
 // 	dropElement      : (arr, element)=> (arr.filter((item)=> (item !== element))),
 	dropElement      : (arr, element)=> (Arrays.dropElements(arr, [element])),
 	dropElements     : (arr, elements)=> (arr.filter((element)=> (!Arrays.containsElement(elements, element)))),
-	indexFill        : (len, ind=0)=> (Arrays.indexMap((new Array(len).fill(null))).map((i)=> (i + ind))),
+	indexFill        : (len, ind=0)=> (Arrays.indexMap(Arrays.repeatFill(len)).map((i)=> (i + ind))),
 	indexMap         : (arr)=> (arr.map((element, i)=> (i))),
 	isEmpty          : (arr)=> (arr.length === 0),
 	randomElement    : (arr)=> (arr[arr.randomIndex()]),
 	randomIndex      : (arr)=> (Maths.randomInt(0, arr.length - 1)),
+	repeatFill       : (len, val=null)=> (new Array(len).fill(val)),
 	shuffle          : (arr)=> {
 		let indexes = Arrays.indexMap(arr);
 		indexes.forEach((element, i)=> {
