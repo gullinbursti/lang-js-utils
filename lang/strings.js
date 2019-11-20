@@ -4,7 +4,7 @@ import { Arrays, Maths } from '../index';
 
 
 //const EMAIL_NEEDLE_REGEX = new RegExp('^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$', 'i');
-const URI_SANITIZED_REGEX = new RegExp('[\u2000-\u206F\u2E00-\u2E7F\'!"#$%&()*/\:;<=>?@[]^`{|}~]', 'g');
+const URI_SANITIZED_REGEX = new RegExp('[\u2000-\u206F\u2E00-\u2E7F\'!"#$%&()*:;<=>?@[]^`{|}~]', 'g');
 
 const Strings = {
 	asciiEncode  : (str, enc='utf8')=> ((new Buffer(str, enc)).toString('ascii')),
@@ -38,7 +38,7 @@ const Strings = {
 	randHex     : (len=1, upperCase=true)=> (Arrays.indexFill(len).map((i)=> ((upperCase) ? Strings.lastChar(Maths.randomHex()).toUpperCase() : Strings.lastChar(Maths.randomHex()))).join('')),
 	rPad        : (str, amt, char='0')=> ((str.length < amt) ? `${str}${(new Array(amt - String(str).length + 1)).join(char)}` : str),
 	shuffle     : (str)=> (Arrays.shuffle([...str.split('')]).join('')),
-	slugifyURI  : (str)=> (str.trim().replace(URI_SANITIZED_REGEX, '').replace(/[+,.]/g, '-').replace(/\s+/g, '-').replace(/[^\w-]+/g, '').replace(/--+/g, '-').replace(/^-+/, '').replace(/-+$/, '').toLowerCase()),
+	slugifyURI  : (str)=> (str.trim().replace(URI_SANITIZED_REGEX, '').replace(/[+,._\/\\\s]/g, '-').replace(/[^\w-]+/g, '').replace(/--+/g, '-').replace(/^-+|=+$/, '').toLowerCase()),
 // 	trimBounds  : (str, char)=> (str.replace(new RegExp(RegExps.quote(char), 'g')), ''),
 // 	trimBounds  : (str, char)=> (str.match(RegExps.concat(char, '^', '$'), '')),
 	trimBounds  : (str, char)=> (str.split(char).filter((segment, i)=> (segment.length > 0)).join(char)),
