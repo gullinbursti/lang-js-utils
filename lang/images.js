@@ -31,7 +31,7 @@ const Images = {
 		context.setLineDash([3, 2]);
 		context.lineDashOffset = 0;
 		context.beginPath();
-		context.strokeStyle = fgColor; // #333333
+		context.strokeStyle = fgColor;
 
 		context.beginPath();
 		context.moveTo(0, 0);

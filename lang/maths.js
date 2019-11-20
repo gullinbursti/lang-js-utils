@@ -61,6 +61,8 @@ const Maths = {
 	},
 	factorial   : (val)=> (Arrays.indexFill(val, 1).reverse().reduce((acc, val)=> (acc * val))),
 	half        : (val)=> (val * 0.5),
+	hexVal      : (val)=> ((val << 0).toString(16)),
+	isDivisible : (val, div)=> ((val % div === 0)),
 	quarter     : (val)=> (val * 0.25),
 	randomFloat : (lower, upper, precision=15)=> ((Math.random() * (upper - lower)) + lower).toFixed(precision),
 	randomHex   : (lower=0x0, upper=0xf)=> (`0x${Maths.randomInt(lower, upper).toString(16)}`),
@@ -70,7 +72,7 @@ const Maths = {
 	square      : (val)=> (Math.pow(val, 2)),
 	toDegrees   : (val)=> (val * (180 / Math.PI)),
 	toRadians   : (val)=> (val * (Math.PI / 180)),
-	wrap        : (val, upper=Number.MAX_VALUE - 1, lower=0)=> ((val < lower) ? lower + (((upper + 1) - Math.abs(val)) % (upper + 1)) : lower + (val % (upper + 1)))
+	wrap        : (val, upper=Number.MAX_VALUE - 1, lower=Number.MIN_VALUE)=> ((val < lower) ? lower + (((upper + 1) - Math.abs(val)) % (upper + 1)) : lower + (val % (upper + 1)))
 };
 
 
