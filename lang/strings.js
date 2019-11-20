@@ -4,7 +4,7 @@ import { Arrays, Maths } from '../index';
 
 
 //const EMAIL_NEEDLE_REGEX = new RegExp('^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$', 'i');
-const URI_SANITIZED_REGEX = new RegExp('[\u2000-\u206F\u2E00-\u2E7F\'!"#$%&()*/:;<=>?@[]^`{|}~]', 'g');
+const URI_SANITIZED_REGEX = new RegExp('[\u2000-\u206F\u2E00-\u2E7F\'!"#$%&()*/\:;<=>?@[]^`{|}~]', 'g');
 
 const Strings = {
 	asciiEncode  : (str, enc='utf8')=> ((new Buffer(str, enc)).toString('ascii')),
