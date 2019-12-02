@@ -15,13 +15,15 @@ const Images = {
 
 		return (imgData);
 	},
-	genPlaceholder : ({ width, height }, bgColor='#999999', fgColor='rgb(31, 31, 31, 0.875')=> {
+	genPlaceholder : ({ width, height }, caption=null, bgColor='#999999', fgColor='rgba(31, 31, 31, 0.875')=> {
 		const canvas = document.createElement('canvas');
 		const context = canvas.getContext('2d');
 
 		document.body.appendChild(canvas);
 		canvas.width = width;
 		canvas.height = height;
+		canvas.style.width = width;
+		canvas.style.height = height;
 
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		context.fillStyle = bgColor;
@@ -39,6 +41,13 @@ const Images = {
 		context.moveTo(width, 0);
 		context.lineTo(0, height);
 		context.stroke();
+
+		if (caption) {
+			context.textAlign = 'center';
+			context.font = `10px Monaco, monospace`;
+			context.fillStyle = fgColor;
+			context.fillText(caption, (width * 0.5) << 0, Math.max(12, height));
+		}
 
 		const dataURL = canvas.toDataURL();
 		canvas.remove();
