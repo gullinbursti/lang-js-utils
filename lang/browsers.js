@@ -38,7 +38,7 @@ const Browsers = (typeof navigator !== 'undefined') ? {
 		}
 	},
 	scrollOrigin : (element)=> (Browsers.scrollElement(element)),
-	userAgent     : { navigator },
+	userAgent     : { navigator }
 } : {};
 
 

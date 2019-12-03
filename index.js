@@ -16,6 +16,7 @@ import Maths from './lang/maths';
 import Numbers from './lang/numbers';
 import Objects from './lang/objects';
 import RegExes from './lang/regexes';
+import Remotes from './lang/remotes';
 import Strings from './lang/strings';
 import URIs from './lang/uris';
 
@@ -36,6 +37,7 @@ export {
 	Numbers,
 	Objects,
 	RegExes,
+	Remotes,
 	Strings,
 	URIs
 };
