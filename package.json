@@ -1,6 +1,6 @@
 {
   "name": "lang-js-utils",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Extends native JS objects.",
   "main": "index.js",
   "scripts": {
