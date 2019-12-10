@@ -1,9 +1,15 @@
 'use strict';
 
 
+import { Image } from 'image-js';
+import Window from 'window';
+
+const window = new Window();
+
+
 const Images = {
 	dataURL        : (img, { width, height }, enc='image/png')=> {
-		const canvas = document.createElement('canvas');
+		const canvas = window.document.createElement('canvas');
 		canvas.width = width;
 		canvas.height = height;
 
@@ -15,8 +21,12 @@ const Images = {
 
 		return (imgData);
 	},
+	dimensions     : async(dataURL)=> {
+		const { width, height } = await Image.load(dataURL);
+		return ({ width, height });
+	},
 	genPlaceholder : ({ width, height }, caption=null, bgColor='#808080', fgColor='rgba(31, 31, 31, 0.875')=> {
-		const canvas = document.createElement('canvas');
+		const canvas = window.document.createElement('canvas');
 		const context = canvas.getContext('2d');
 
 		document.body.appendChild(canvas);
