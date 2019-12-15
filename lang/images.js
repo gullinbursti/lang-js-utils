@@ -2,9 +2,8 @@
 
 
 import { Image } from 'image-js';
-import Window from 'window';
-
-const window = new Window();
+// import Window from 'window';
+// const window = new Window();
 
 
 const Images = {
@@ -60,6 +59,7 @@ const Images = {
 		}
 
 		const dataURL = canvas.toDataURL();
+// 		const dataURL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAMgCAYAAAC9FhA7AAC1RElEQVR4nOzdeYDU9P3/8Vd2F3YX';
 		canvas.remove();
 
 		return (dataURL);

@@ -24,5 +24,6 @@
   "dependencies": {
     "image-js": "^0.21.8",
     "window": "^4.2.6"
-  }
+  },
+  "devDependencies": {}
 }
