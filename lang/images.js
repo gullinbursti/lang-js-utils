@@ -5,6 +5,29 @@ import { Image } from 'image-js';
 // import Window from 'window';
 // const window = new Window();
 
+import { Arrays } from '../';
+
+const AVATAR_BG_COLORS = [
+	'#1abc9c',
+	'#2ecc71',
+	'#3498db',
+	'#9b59b6',
+	'#34495e',
+	'#16a085',
+	'#27ae60',
+	'#2980b9',
+	'#8e44ad',
+	'#2c3e50',
+	'#f1c40f',
+	'#e67e22',
+	'#e74c3c',
+	'#95a5a6',
+	'#f39c12',
+	'#d35400',
+	'#c0392b',
+	'#bdc3c7',
+	'#7f8c8d'
+];
 
 const Images = {
 	dataURL        : (img, { width, height }, enc='image/png')=> {
@@ -24,6 +47,31 @@ const Images = {
 		const { width, height } = await Image.load(dataURL);
 		return ({ width, height });
 	},
+	genLetterAvatar  : (letter, txtColor='#ffffff', size=128)=> {
+		const canvas = window.document.createElement('canvas');
+		const context = canvas.getContext('2d');
+
+		document.body.appendChild(canvas);
+		canvas.width = size;
+		canvas.height = size;
+		canvas.style.width = `${size}px`;
+		canvas.style.height = `${size}px`;
+
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		context.fillStyle = Arrays.randomElement(AVATAR_BG_COLORS);
+		context.fillRect(0, 0, size, size);
+
+		context.font = '16px Monaco, monospace';
+		context.textAlign = 'center';
+		context.textBaseline = 'middle';
+		context.fillStyle = txtColor;
+		context.fillText(letter, size * 0.5, size * 0.5);
+
+		const dataURL = canvas.toDataURL();
+		canvas.remove();
+
+		return (dataURL);
+	},
 	genPlaceholder : ({ width, height }, caption=null, bgColor='#808080', fgColor='rgba(31, 31, 31, 0.875')=> {
 		const canvas = window.document.createElement('canvas');
 		const context = canvas.getContext('2d');
@@ -31,8 +79,8 @@ const Images = {
 		document.body.appendChild(canvas);
 		canvas.width = width;
 		canvas.height = height;
-		canvas.style.width = width;
-		canvas.style.height = height;
+		canvas.style.width = `${width}px`;
+		canvas.style.height = `${height}px`;
 
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		context.fillStyle = bgColor;
@@ -53,7 +101,7 @@ const Images = {
 
 		if (caption) {
 			context.textAlign = 'center';
-			context.font = `10px Monaco, monospace`;
+			context.font = '10px Monaco, monospace';
 			context.fillStyle = fgColor;
 			context.fillText(caption, (width * 0.5) << 0, Math.max(0, height - 5));
 		}
