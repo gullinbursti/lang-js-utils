@@ -5,7 +5,7 @@ import { Image } from 'image-js';
 // import Window from 'window';
 // const window = new Window();
 
-import { Arrays } from '../';
+import { Arrays, Strings } from '../';
 
 const AVATAR_BG_COLORS = [
 	'#1abc9c',
@@ -47,7 +47,9 @@ const Images = {
 		const { width, height } = await Image.load(dataURL);
 		return ({ width, height });
 	},
-	genLetterAvatar  : (letter, txtColor='#ffffff', size=128)=> {
+	genLetterAvatar : (letter, txtColor='#ffffff', size=128)=> {
+		letter = Strings.firstChar(letter).toUpperCase();
+
 		const canvas = window.document.createElement('canvas');
 		const context = canvas.getContext('2d');
 
@@ -61,7 +63,7 @@ const Images = {
 		context.fillStyle = Arrays.randomElement(AVATAR_BG_COLORS);
 		context.fillRect(0, 0, size, size);
 
-		context.font = '16px Monaco, monospace';
+		context.font = '48px Monaco, monospace';
 		context.textAlign = 'center';
 		context.textBaseline = 'middle';
 		context.fillStyle = txtColor;
