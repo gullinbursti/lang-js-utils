@@ -34,9 +34,14 @@ const Maths = {
 			right  : Math.min(rect1.right, rect2.right)
 		}),
 		isSizeDimensioned    : (size, flag=0x11)=> (size.width !== 0 && size.height !== 0),
-		lineMidpoint         : (pt1, pt2)=> ({ x : pt1.x + ((pt2.x - pt1.x) * 0.5), y : pt1.y + ((pt2.y - pt1.y) * 0.5) }),
-		ptAngle              : (pt1, pt2)=> (Math.atan2(pt2.y - pt1.y, pt2.x - pt1.x)),
-		ptDistance           : (pt1, pt2)=> (Math.sqrt(Maths.square(Math.abs(pt2.x - pt1.x)) + Maths.square(Math.abs(pt2.y - pt1.y)))),
+		pointScale           : (pt, factor)=> ({ x : pt.x * factor, y : pt.y * factor}),
+		pointsAdd            : (pt1, pt2)=> ({ x : pt1.x + pt2.x, y : pt1.y + pt2.y }),
+		pointsAngle          : (pt1, pt2)=> (Math.atan2(pt2.y - pt1.y, pt2.x - pt1.x)),
+		pointtsDistance      : (pt1, pt2)=> (Math.sqrt(Maths.square(Math.abs(pt2.x - pt1.x)) + Maths.square(Math.abs(pt2.y - pt1.y)))),
+		pointsEqual          : (pt1, pt2)=> (pt1.x === pt2.y && pt1.y === pt2.y),
+		pointsMidpoint       : (pt1, pt2)=> ({ x : pt1.x + ((pt2.x - pt1.x) * 0.5), y : pt1.y + ((pt2.y - pt1.y) * 0.5) }),
+		pointsMultiply       : (pt1, pt2)=> ({ x : pt1.x * pt2.x, y : pt1.y * pt2.y }),
+		pointsSubtract       : (pt1, pt2)=> ({ x : pt2.x - pt1.x, y : pt2.y + pt1.y }),
 		rectContainsRect     : (rect1, rect2)=> (rect1.top <= rect2.top && rect1.left <= rect2.left && rect1.right >= rect2.right && rect1.bottom >= rect2.bottom),
 		rectIntersectsRect   : (rect1, rect2)=> (Math.max(rect1.left, rect2.left) < Math.min(rect1.right, rect2.right) && Math.max(rect1.top, rect2.top) < Math.min(rect1.bottom, rect2.bottom)),
 		rectToFrame          : (rect)=> ({
