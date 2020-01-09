@@ -22,7 +22,11 @@
   },
   "homepage": "https://github.com/gullinbursti/lang-js-utils#readme",
   "dependencies": {
+    "buffer-to-stream": "^1.0.0",
+    "data-uri-to-buffer": "^3.0.0",
+    "datauri": "^2.0.0",
     "image-js": "^0.21.8",
+    "imagejs": "0.0.9",
     "window": "^4.2.6"
   },
   "devDependencies": {}

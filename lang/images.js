@@ -1,7 +1,10 @@
 'use strict';
 
 
+import toStream from 'buffer-to-stream';
+import Datauri from 'datauri';
 import { Image } from 'image-js';
+import ImageJS from 'imagejs';
 // import Window from 'window';
 // const window = new Window();
 
@@ -113,6 +116,9 @@ const Images = {
 		canvas.remove();
 
 		return (dataURL);
+	},
+	resize     : (data, { width : height })=> {
+		return (null);
 	}
 };
 
