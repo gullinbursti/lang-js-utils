@@ -50,6 +50,27 @@ const Images = {
 		const { width, height } = await Image.load(dataURL);
 		return ({ width, height });
 	},
+	genColor        : (rgba, size)=> {
+// 		console.log('genColor', { rgba, size });
+
+		const canvas = window.document.createElement('canvas');
+		const context = canvas.getContext('2d');
+
+		document.body.appendChild(canvas);
+		canvas.width = size.width;
+		canvas.height = size.height;
+		canvas.style.width = `${size.width}px`;
+		canvas.style.height = `${size.height}px`;
+
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		context.fillStyle = `rgba(${rgba.r}, ${rgba.g}, ${rgba.b}, ${rgba.a})`;
+		context.fillRect(0, 0, size.width, size.height);
+
+		const dataURL = canvas.toDataURL();
+		canvas.remove();
+
+		return (dataURL);
+	},
 	genLetterAvatar : (letter, txtColor='#ffffff', size=128)=> {
 		letter = Strings.firstChar(letter).toUpperCase();
 
