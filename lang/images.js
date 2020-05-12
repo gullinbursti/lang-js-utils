@@ -71,8 +71,13 @@ const Images = {
 
 		return (dataURL);
 	},
-	genLetterAvatar : (letter, txtColor='#ffffff', size=128)=> {
+	genLetterAvatar : (letter, size=128, txtColor=null)=> {
 		letter = Strings.firstChar(letter).toUpperCase();
+
+		const bgColor = Arrays.randomElement(AVATAR_BG_COLORS);
+		const fgColor = (txtColor || (Number(`0x1${bgColor}`) ^ 0xffffff).toString(16).substr(1));
+
+		console.log('[:][:][:][:][:][:][:][:][:][:][:][:][:]', { bgColor, fgColor });
 
 		const canvas = window.document.createElement('canvas');
 		const context = canvas.getContext('2d');
@@ -84,19 +89,19 @@ const Images = {
 		canvas.style.height = `${size}px`;
 
 		context.clearRect(0, 0, canvas.width, canvas.height);
-		context.fillStyle = Arrays.randomElement(AVATAR_BG_COLORS);
+		context.fillStyle = bgColor;
 		context.fillRect(0, 0, size, size);
 
-		context.font = '48px Monaco, monospace';
+		context.font = `${(size * 0.5) << 0}px Monaco, monospace`;
 		context.textAlign = 'center';
 		context.textBaseline = 'middle';
-		context.fillStyle = txtColor;
+		context.fillStyle = fgColor;
 		context.fillText(letter, size * 0.5, size * 0.5);
 
 		const dataURL = canvas.toDataURL();
 		canvas.remove();
 
-		return (dataURL);
+		return ({ dataURL, bgColor, fgColor });
 	},
 	genPlaceholder : ({ width, height }, caption=null, bgColor='#808080', fgColor='rgba(31, 31, 31, 0.875')=> {
 		const canvas = window.document.createElement('canvas');
