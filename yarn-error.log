@@ -1,0 +1,66 @@
+Arguments: 
+  /usr/local/Cellar/node/14.3.0/bin/node /Users/mattholcombe/.yarn/bin/yarn.js link
+
+PATH: 
+  /Users/mattholcombe/.yarn/bin:/Users/mattholcombe/.config/yarn/global/node_modules/.bin:/Users/mattholcombe/bin:/usr/local/bin:/Users/mattholcombe/.yarn/bin:/Users/mattholcombe/.config/yarn/global/node_modules/.bin:/Users/mattholcombe/bin:/usr/local/bin:/Users/mattholcombe/.yarn/bin:/Users/mattholcombe/.config/yarn/global/node_modules/.bin:/Users/mattholcombe/bin:/Users/mattholcombe/bin/local:/Users/mattholcombe/bin/dev:/Users/mattholcombe/bin/dev:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  14.3.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: Failed to replace env in config: ${GB_NPM_TOKEN}
+      at /Users/mattholcombe/.yarn/lib/cli.js:98869:13
+      at String.replace (<anonymous>)
+      at envReplace (/Users/mattholcombe/.yarn/lib/cli.js:98864:16)
+      at Function.normalizeConfig (/Users/mattholcombe/.yarn/lib/cli.js:31887:69)
+      at NpmRegistry.<anonymous> (/Users/mattholcombe/.yarn/lib/cli.js:31917:34)
+      at Generator.next (<anonymous>)
+      at step (/Users/mattholcombe/.yarn/lib/cli.js:310:30)
+      at /Users/mattholcombe/.yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "lang-js-utils",
+    "version": "0.6.1",
+    "description": "Extends native JS objects.",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+      "extend",
+      "lang",
+      "util"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/gullinbursti/lang-js-utils.git"
+    },
+    "author": "Matt Holcombe",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/gullinbursti/lang-js-utils/issues"
+    },
+    "homepage": "https://github.com/gullinbursti/lang-js-utils#readme",
+    "dependencies": {
+      "buffer-to-stream": "^1.0.0",
+      "data-uri-to-buffer": "^3.0.0",
+      "datauri": "^2.0.0",
+      "image-js": "^0.21.8",
+      "imagejs": "0.0.9",
+      "window": "^4.2.6"
+    },
+    "devDependencies": {}
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

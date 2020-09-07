@@ -1,9 +1,12 @@
 
 #-- os stuff --#
-.*DS_STORE
+.*DS_Store
+
 
 #-- ide stuff --#
 .idea
 
+
 #-- dir stuff --#
-node_modules
+/.history
+/node_modules
