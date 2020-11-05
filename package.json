@@ -1,26 +1,29 @@
 {
   "name": "lang-js-utils",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "Extends native JS objects.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "homepage": "https://github.com/gullinbursti/lang-js-utils#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gullinbursti/lang-js-utils.git"
+  },
+  "author": {
+    "name": "Matt Holcombe",
+    "url": "https://github.com/gullinbursti"
   },
   "keywords": [
     "extend",
     "lang",
     "util"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gullinbursti/lang-js-utils.git"
-  },
-  "author": "Matt Holcombe",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/gullinbursti/lang-js-utils/issues"
   },
-  "homepage": "https://github.com/gullinbursti/lang-js-utils#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "buffer-to-stream": "^1.0.0",
     "data-uri-to-buffer": "^3.0.0",
